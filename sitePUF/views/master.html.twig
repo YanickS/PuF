@@ -1,0 +1,108 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+    <title>Master Informatique</title>
+    <meta name="description" content="Le PUF dispense deux Masters informatique (spécialité reseau et spécialité logiciel)" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Informatique Ho Chi Minh, Licence Informatique Ho Chi Minh,  Master IT Ho chi minh, Master in mobile and internet services,
+          Master in softwareengineering, stage informatique Ho hi minh, Formation Informatique Ho chi minh"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+
+            $('#searchbar').autocomplete({
+                 serviceUrl: '{{ path('search') }}',
+                 dataType: 'json'
+             });
+
+            $('#btn-search').click(function(){
+                var temp = $('#searchbar').val();
+                if (temp != ''){
+                     var arr = temp.split('-');
+                    $.trim(arr[0]);
+                    var route = "{{ path('searchID', { 'lib': "PLACEHOLDER" }) }}";
+                    window.location = route.replace("PLACEHOLDER",arr[0]);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block master %}
+    <div id="filAriane">
+        <h4><a href="{{ path('home')}}">Accueil</a> > Formations > Master Informatique</h4>
+    </div>
+    <div id="masterContainer">
+        <h1>MASTER INFORMATIQUE</h1>
+        <p id="masterDiplome">Diplôme délivré par le LMD<br />Université Pierre et Marie Curie - Paris 6 / Université de Bordeaux 1</p>
+        <div id="masterInfos">
+            <div id="masterDescription">
+                <h2>Description</h2>
+                <div class="ligne"></div>
+                <p>	Les programmes de formation en anglais, sous la forme à temps plein et de concentration, y compris 4 semestres et des cours préparatoires
+                    pour deux mois afin d'améliorer les compétences en anglais et disposer de connaissances de base en français.		
+                </p>
+                <h3>Opportunités de carrière</h3>
+                <p>Spécialisées réseaux informatiques : pour travailler dans les professions liées à la technologie, le conseil et l'architecture de réseau d'audit, le déploiement, l'administration et la sécurité du réseau.</p>
+                <p>Spécialisées logiciel : logestionnaires de projets le développement et la maintenance des logiciels.</p>
+            </div>
+            <div id="masterProg">
+                <h2>Programme</h2>
+                <div class="ligne"></div>
+                <p>	Temps de formation : 2 ans<br/>
+                    Langue d'enseignement : Anglais<br/>
+                </p>
+                <div id="masterTableInfos">
+                    <a href="tableauMasterInfoAn1.html"><img id="imgTableau1" alt="image tableau 1" src="{{ app.request.basePath }}/Ressources/Img/Formations/master1.png"/></a>
+                    <a href="tableauMasterInfoAn2.html"><img id="imgTableau2" alt="image tableau 2" src="{{ app.request.basePath }}/Ressources/Img/Formations/master2.png"/></a>
+                </div>
+            </div>
+            <div id="masterAdmission">
+                <h2>Admission</h2>
+                <div class="ligne"></div>
+                <p>Mise à disposition pour le recrutement en 1: étudiants des cycles supérieurs des études d'informatique ou fermer des succursales de blocs A (Sciences et Technologie), mais avec la connaissance et / ou expérience solide dans les technologies de l'information.
+                    Provision pour le recrutement direct dans l'année 2 de bacheliers ou des ingénieurs ayant un bon processus d'apprentissage peut être considéré comme exceptionnel dans la deuxième année si le Conseil a reconnu la qualification d'entrée, et peut qualifications participation d'examen.
+                    Les candidats doivent avoir d'excellentes compétences en anglais certificats TOEFL500 ou IELTS 5.5 ou équivalent. Sinon, le candidat doit prendre la langue test examen de compétence en  PUF - HCM  organisation.
+                </p>
+                <h3>Prix d'entrée</h3>
+                <p>500 000 VND / profil</p>
+                <h3>Frais de scolarité</h3>
+                <p>	67 millions de dôngs / an <br/>
+                    71 millions de dôngs / an pour les étudiants en 2ème année directement
+                </p>
+                <h3>Bourse</h3>
+                <p>Ces étudiants exceptionnels recevront des bourses complètes ou partielles de PUF - HCM, voir les détails <a href="http://www.pufhcm.edu.vn/Pictures/StudyProgramLinkDownload/QUY%20DINH%20HOC%20BONG%202013-2014.pdf" target="_blank">ici</a></p>
+                <h3>Calendrier des admissions</h3>
+                <p>Date limite pour le recrutement Phase 1: 30/06, Round 2: 07.30<br />
+                    Critique et interview: Mai 07<br/>
+                    Résultats de la mise en circulation: 07 mars<br/>
+                    Résultats de l'enregistrement officiel: 08 mars<br/>
+                    Apprentissage des langues: 09 mai<br/>
+                    Apprentissage professionnel: Novembre
+                </p>
+            </div>
+            <div id="masterContact">
+                <div id="batImg">
+                    <img alt="image batiment" style="width: 100%;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgBatiment.png" />
+                </div>
+                <h2>Contact</h2>
+                <div class="ligne"></div>
+                <p> Pole Universitaire Francais de l'Université Nationale du Vietnam - HCM ville (PUF – HCM)<br/>
+                    Salle 706, 7eme étage, Bâtiment administratif de l’Université Nationale du Vietnam à HCMV<br/>
+                    Quartier 6, Linh Trung, Thu Duc arrondissement, Ho Chi Minh ville<br/>
+                    Tél : (08) 37 242 169 – Fax : (08) 37 242 166<br/>
+                </p>
+                <p> Mail : an.nguyenngoc@pufhcm.edu.vn<br/>
+                    info@pufhcm.edu.vn
+                </p>
+            </div>
+        </div> 
+    </div>
+{% endblock %}

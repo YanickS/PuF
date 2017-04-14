@@ -1,0 +1,55 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+        <title>Partnership</title>
+        <meta name="description" content="Présentation des partenaires du PUF de Hô Chi Minh" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm partenariats, puf université marie curie,
+          Pole universitaire francais ho chi minh, puf université Bordeaux"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+{% block partenariat %}
+        <div id="filAriane">
+		  	<h4><a href="{{ path('home_en')}}">Home</a> > PUF > Partnership</h4>
+        </div>
+        <div id="partenariatsContainer"> 
+            <h1>OUR PARTNERSHIP</h1>
+            <div id="partenariatsInfos">
+                <div id="p1">
+                    <h2>University Pierre et Marie Curie</h2>
+                    <div class="ligne"></div>
+                    <p>
+                        UPMC<br/>
+                        4 place Jussieu <br/>
+                        75005 Paris, France<br/>
+                        Tél. +33(0)1.44.27.44.27<br/>
+                        www.upmc.fr<br/>
+                    </p>
+                      <img src="{{ app.request.basePath }}/Ressources/Img/Footer/upmcLogo.png" alt="upmc" />
+                </div>     
+                <div id="p2">
+                    <h2> University of Bordeaux </h2>
+                    <div class="ligne"></div>
+                    <p>
+                        Université de Bordeaux <br/>
+                        166, Cours de l'Argonne<br/>
+                        33000 Bordeaux, France<br/>
+                        Tél. +33(0)5.56.33.80.80<br/>
+                        www.u-bordeaux.fr<br/>
+                    </p>
+                     <img src="{{ app.request.basePath }}/Ressources/Img/Footer/univLogo.jpg" alt="univBordeaux" />
+            </div>         
+        </div>
+    </div>
+{% endblock %}

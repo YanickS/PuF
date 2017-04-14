@@ -1,0 +1,93 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+	    <title>Master</title>
+	    <meta name="description" content="Le PUF dispense deux Masters informatique (spécialité reseau et spécialité logiciel)" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Informatique Ho Chi Minh, Licence Informatique Ho Chi Minh,  Master IT Ho chi minh, Master in mobile and internet services,
+          Master in softwareengineering, stage informatique Ho hi minh, Formation Informatique Ho chi minh"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+{% block master %}
+	    <div id="filAriane">
+	        <h4><a href="{{ path('home_en')}}">Home</a> > Formations > Master </h4>
+	    </div>
+	    <div id="masterContainer">
+	    	<h1>MASTER </h1>
+	            <p id="masterDiplome"></p>
+	        <div id="masterInfos">
+	        	<div id="masterDescription">
+	        		<h2>Description</h2>
+	        		<div class="ligne"></div>
+	            	<p>	The English training programs, as full-time and concentration, including 4 semesters and preparatory courses for two months to improve skills in English and have basic knowledge of French.		
+					</p>
+	        		<h3>Career opportunities</h3>
+					<p>Master in mobile and internet services: to work in technology, consulting and network architecture audit, deployment, administration and network security.</p>
+					<p>Master in software engineering : project managers development and software maintenance.</p>
+	        	</div>
+	        	<div id="masterProg">
+	        		<h2>Program</h2>
+	        		<div class="ligne"></div>
+	        		<p>	Training time: 2 years<br/>
+						Language: English<br/>
+					</p>
+					<div id="masterTableInfos">
+                    <a href="tableauMasterInfoAn1.html"><img id="imgTableau1" alt="image tableau 1" src="{{ app.request.basePath }}/Ressources/Img/Formations/master1.png"/></a>
+                    <a href="tableauMasterInfoAn2.html"><img id="imgTableau2" alt="image tableau 2" src="{{ app.request.basePath }}/Ressources/Img/Formations/master2.png"/></a>
+                </div>
+	        	</div>
+	        	<div id="masterAdmission">
+	        		<h2>Admission</h2>
+	        		<div class="ligne"></div>
+	        		<p>Provision for recruitment in 1: graduate students studying computer science or close branches block A (Science and Technology), but with the knowledge and / or experience in the information technology.
+                        
+Provision for direct recruitment in year 2 of graduates or engineers with a good learning process can be considered exceptional in the second year if the Council recognized the entrance qualifications, skills and participation can review.
+                        
+Candidates must have excellent English skills certificates TOEFL500 or IELTS 5.5 or equivalent. Otherwise, the candidate must take the test language proficiency examination PUF - HCM organization.
+	        		</p>
+	        		<h3>Admission cost</h3>
+	        		<p>500 000 VND </p>
+	        		<h3>Cost per year</h3>
+	        		<p>	67 million of dôngs per year <br/>
+						71 million of dôngs per year for students in 2nd year directly
+					</p>
+					<h3>scholarship</h3>
+					<p>These outstanding students will receive full or partial scholarships to PUF - HCM view details <a href="http://www.pufhcm.edu.vn/Pictures/StudyProgramLinkDownload/QUY%20DINH%20HOC%20BONG%202013-2014.pdf" target="_blank">here</a></p>
+	        		<h3>Calendar of admission</h3>
+	        		<p>Deadline for recruitment Round 1: June 30, Round 2: July 30<br />
+						Review and interview: May 07<br/>
+						Results of the release: March 07 <br/>
+                        Results of official registration: March 08 <br/>
+                        Language learning: May 09 <br/>
+                        Professional learning: November
+					</p>
+	        	</div>
+	        	<div id="masterContact">
+	        		<div id="batImg">
+                    <img alt="image batiment" style="width: 100%;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgBatiment.png" />
+                </div>
+	        		<h2>Contact</h2>
+	        		<div class="ligne"></div>
+	        		<p> Pole Universitaire Francais de l'Université Nationale du Vietnam - HCM ville (PUF – HCM)<br/>
+                        Salle 706, 7eme étage, Bâtiment administratif de l’Université Nationale du Vietnam à HCMV<br/>
+                        Quartier 6, Linh Trung, Thu Duc arrondissement, Ho Chi Minh ville<br/>
+                        Tél : (08) 37 242 169 – Fax : (08) 37 242 166<br/>
+                    </p>
+                    <p> Mail : an.nguyenngoc@pufhcm.edu.vn<br/>
+                        info@pufhcm.edu.vn
+                    </p>
+	        	</div>
+	        </div> 
+	    </div>
+		{% endblock %}

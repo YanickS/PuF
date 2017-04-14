@@ -1,0 +1,50 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+		<title>You are professional</title>
+		<meta name="description" content="Vous êtes professionnel et vous cherchez des informations ? Le PUF vous guide et répond à vos questions." />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm entreprises, puf université entreprises,
+          Pole universitaire francais ho chi minh"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+{% block professionnel %}
+		<div id="filAriane">
+			<h4><a href="{{ path('home_en') }}">Home</a> > Youo are professionnal</h4>
+		</div>
+		<div id="proContainer">
+			<h1>YOU ARE PROFESSIONNAL</h1>
+			<div id="proInfos">
+				<div id="accroche">
+					<p id="accrocheQuestions">	Are you a company? Looking for an intern? Want to know more about our courses?</p>
+					<p id="accrocheRep"> Look no further and let you guide!</p>
+				</div>
+				<div id="intro">
+					<h2>Who are we?</h2>
+					<div class="ligne"></div>
+					<p> The PUF (french university pole) Ho Chi Minh City is up to French higher education present in Vietnam which currently brings together five teams divided into two sectors: Economics and Computer Science. To learn more about us please visit our page <a href="{{ path('hier_en') }}">presentation</a>.</p>
+				</div>
+				<div id="formations">
+					<h2>How are the courses and training?</h2>
+					<div class="ligne"></div>
+					<p>The IT department provides two types of training <a href="{{ path('licence_en') }}">a I.T degree</a> and <a href="{{ path('master_en') }}">two Masters </a>.  Our courses provide training periods ranging from three to six months. For students, it is an opportunity to put into practice the knowledge acquired during their training and prepare for their future jobs. For you, it is an opportunity to meet future graduates to integrate to your team.</p>
+				</div>
+				<div id="nousContacter">
+					<h2>Need to contact us?</h2>
+					<div class="ligne"></div>
+					<p>If you want to get in touch with us to give us your internship opportunities or just to have additional information on a particular topic please complete our <a href="{{ path('contact_en') }}">Contact form</a>.</p>
+				</div>
+			</div>
+		</div>
+		{% endblock %}

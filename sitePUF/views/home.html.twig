@@ -1,0 +1,131 @@
+{% extends "layout.html.twig" %}
+
+{% block head %}
+    <title>PUF HCM IT </title>
+    <meta name="description" content="Le PUF de Hô Chi Minh présente ses formations informatiques (Licence et Masters)." />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Informatique Ho Chi Minh, IT Ho Chi Minh, ITC Ho Chi Minh, Dut Informatique, Licence Informatique Ho Chi Minh, Bachelor IT Ho Chi minh, Bachelor ICT Ho Chi Minh, Master IT Ho chi minh, Master in mobile and internet services, Master in softwareengineering, stage informatique Ho hi minh, Formation Informatique Ho chi minh, Formation TIC Ho chi minh "/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script src="{{ app.request.basePath }}/Js/owl.carousel.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+
+            $('#searchbar').autocomplete({
+                 serviceUrl: '{{ path('search') }}',
+                 dataType: 'json'
+             });
+
+            $('#btn-search').click(function(){
+                var temp = $('#searchbar').val();
+                if (temp != ''){
+                     var arr = temp.split('-');
+                    $.trim(arr[0]);
+                    var route = "{{ path('searchID', { 'lib': "PLACEHOLDER" }) }}";
+                    window.location = route.replace("PLACEHOLDER",arr[0]);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block home %}
+    <div id="filAriane">
+        <h4>Accueil</h4>
+    </div>
+    <div id="homeContainer">
+        <h1>LE PUF VOUS ACCUEILLE</h1>
+
+        <div id="homeCarousel" class="owl-carousel">
+            <div class="item"><img src="{{ app.request.basePath }}/Ressources/Img/Accueil/Carousel/tempCarousel.jpg" alt="Bienvenu au PUF"></div>
+            <div class="item"><img src="{{ app.request.basePath }}/Ressources/Img/Accueil/Carousel/imgBatiment.png" alt="Batiment"></div>
+
+        </div>
+        <div id="homeInfos">
+            <div class="text" id="why">
+                <h2>Pourquoi étudier au PUF ? <span>-</span></h2>
+                <div class="ligne"></div>
+                <h3>Des universités européennes de premier plan</h3>
+                <p>Nos formations sont délivrées par des enseignants et chercheurs issus d’Universités de niveau international.</p>
+                <h3>Des diplômes internationalement reconnus</h3>
+                <p>Nos diplômes sont homologués et vous permettront d’intégrer les universités européennes et nord américaines.</p>
+                <h3>Des partenaires industriels majeurs</h3>
+                <p>Nos liens étroits avec le monde industriel local et international vous offrent des opportunités de stage et d’apprentissage.</p>
+                <h3>Des perspectives de carrières</h3>
+                <p>Notre enseignement vous permet d’acquérir les compétences techniques et théoriques qui vous autorisent indifféremment une carrière orientée vers la recherche, l’enseignement ou l’entreprise. </p>
+            </div>
+            <div class="text">
+                <h2>Pour quels diplômes ? <span>+</span></h2>
+                <div class="ligne"></div>
+                <p> Notre <a href="{{ path('licence') }}">Licence en informatique</a> vous apporte en 3 ans les compétences et connaissances nécessaires pour participer à la conception, au développement et à la maintenance de systèmes informatiques : <br />
+                    - Conception, développement, validation, suivi et maintenance de logiciels, <br />
+                    - Installation, administration et maintenance de systèmes et réseaux informatiques.<br /></p>
+                <p>Notre <a href="{{ path('master') }}">Master Réseaux</a>, en services Internet et Mobiles vous forme en 2 ans en concentrant ses enseignements sur la conception et le développement de systèmes informatiques mobiles et de dimension internationale, sur la conception d'une infrastructure réseau pouvant soutenir ces systèmes informatiques, ainsi que sur la conception de systèmes évolutifs qui exploitent des architectures distribuées. <br /></p>
+                <p>Notre <a href="{{ path('master') }}">Master Génie Logiciel</a> vous forme en 2 ans en concentrant ses enseignements sur les méthodes formelles, des méthodologies aguerries de management de projet, ainsi que des compétences pratiques, afin de former des experts en conception et développement de systèmes logiciels efficaces et sûrs. </p>
+            </div>
+            <div class="text">
+                <h2>Des formations de niveau international <span>+</span></h2>
+                <div class="ligne"></div>
+                <p>Créé en 2006, le PUF délivre des formations universitaires en informatique en partenariat avec les meilleures universités françaises et européennes.
+                    Nos <a href="{{ path('licence') }}">Licences</a> et <a href="{{ path('master') }}">Masters</a> vous offrent une formation technique de grande qualité couplée à une réelle expérience pratique.
+                    Ces diplômes vous permettent d’acquérir des compétences techniques et managériales vous préparant à occuper des postes de décideurs dans le secteur des technologies de l’information et de la communication. </p>
+            </div>
+            <div class="text">
+                <h2>Opportunités de carrières <span>+</span></h2>
+                <div class="ligne"></div>
+                <p>Le secteur des TIC souffre aujourd’hui d’une pénurie mondiale de personnels qualifiés. Nos diplômes sont donc porteurs sur le marché du travail et garantissent à nos diplômés des progressions de carrières rapides et des salaires élevés. 
+                    Nos étudiants acquièrent des compétences de management essentielles aux leaders informatiques du monde du travail compétitif actuel. </p>
+            </div>
+            <div class="text">
+                <h2>Les points forts du PUF <span>+</span></h2>
+                <div class="ligne"></div>
+                <p>Le PUF entretient des liens étroits avec l’Europe au travers de <a href="{{ path('partenariat') }}">partenariats</a> industriels, de collaborations de recherche et d’échanges d’étudiants et d'enseignants.
+                    Les formations du PUF sont assurées par une équipe expérimentée d’enseignants et de professionnels du secteur des TIC. 
+                    Nos pratiques pédagogiques allient cours magistraux, travaux dirigés, travaux pratiques et travaux en « groupe projet » pour vous permettre de développer une véritable expérience pratique et vous préparer au mieux à une insertion professionnelle optimale.
+                    Avec une formation délivrée en français ou en anglais vous pourrez acquérir les compétences linguistiques indispensables à votre réussite en milieu professionnel.
+                    Vous bénéficierez enfin de nos liens étroits avec les entreprises nationales et internationales du secteur des TIC afin de préparer votre future carrière.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#homeCarousel").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+            });
+
+            var why = $("#why h2");
+            var text = $(".text h2");
+            text.addClass("close");
+            var par = text.next().nextAll();
+            par.css("display", "none");
+            why.next().nextAll().css("display", "block");
+            why.removeClass("close");
+            why.addClass("open");
+
+            $(".text h2").click(function () {
+                if ($(this).hasClass("close")) {
+                    $(this).next().nextAll().slideToggle();
+                    $(".text h2.open").next().nextAll().slideToggle();
+                    $(".text h2.open span").html("+");
+                    text.addClass("close");
+                    text.removeClass("open");
+                    $(this).addClass("open");
+                    $(this).removeClass("close");
+                    $(this).find("span").html("-");
+                }
+            });
+        });
+    </script>
+{% endblock %}

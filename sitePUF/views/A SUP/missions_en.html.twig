@@ -1,0 +1,175 @@
+{% extends 'layout_en.html.twig' %}
+{% block head %}
+    <title>Missions</title>
+    <meta name="description" content="Consultez les missions en cours ou à venir, dates d'exams, coefficient,..." />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf missions, puf creation missions,
+          Pole universitaire francais ho chi minh, puf edition missions"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>	
+    <!-- CSS Script FullCalendar et ColorPicker -->
+    <link href='{{ app.request.basePath }}/Styles/fullcalendar.css' rel='stylesheet' />
+    <link href='{{ app.request.basePath }}/Styles/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href="{{ app.request.basePath }}/Styles/colorpicker.css" rel="stylesheet" type="text/css"  />
+    <!-- CSS jQuery UI Perso -->
+    <link href="{{ app.request.basePath }}/Styles/jquery-ui.css" rel="stylesheet" />
+    <!-- Appel jQuery et jQuery UI -->
+    <script src='{{ app.request.basePath }}/Js/jquery.min.js'></script>
+    <script src="{{ app.request.basePath }}/Js/jquery-ui.min.js"></script>
+    <!-- Appel MonJS -->
+    <script src="{{ app.request.basePath }}/Js/missionsJs.js"></script>
+    <!-- Appel JS Script FullCalendar et ColorPicker -->
+    <script src='{{ app.request.basePath }}/Js/moment.min.js'></script>
+    <script src='{{ app.request.basePath }}/Js/fullcalendar.min.js'></script>
+    <script src='{{ app.request.basePath }}/Js/fr.js'></script>
+    <script src="{{ app.request.basePath }}/Js/colorpicker.js" type="text/javascript" ></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block missions %}
+    <div id="filAriane">
+        <h4><a href="{{ path('home_en') }}">Home</a> > Missions</h4>
+    </div>
+    <div id="missionsContainer">
+        <h1>VIEWING OF MISSIONS</h1>
+        <div  id="zoneCalendar">
+            <div>{{app.session}}</div>
+            <!-- Ajouter condition admin avec variable session -->
+            <button id="createMission" style="base" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                <span class='ui-button-text'>Add a Mission</span>
+            </button>
+            <div id='calendar'></div>	
+        </div>	
+        <!-- PopUp Infos Mission  -->
+        <div id="missionContent" title="Mission" style="display:none;">
+            <!-- Donnees table mission -->
+            <div id="divIdMission">
+                IdMission: <input type="text" id="idMission" disabled><br/>
+            </div>
+            <span class="require">*</span>Title: <input type="text" id="titleMission" disabled>
+            <div class="noValid require"></div><br/>
+            <span class="require">*</span>Begin<input type="text" id="startMission" disabled>
+            <div class="noValid require"></div><br/>
+            <span class="require">*</span>End<input type="text" id="endMission" disabled>(Non compris)
+            <div class="noValid require"></div><br/>
+            Link of the record: <input type="text" id="ficheMission" disabled><br/>
+            Background color: 
+            <div id="divBgColorMission" hidden>
+                <div style="background-color:#333333; width:30px; height:30px; border: 2px solid #000000;"></div>
+            </div>
+            <input type="text" id="bgColorMission" disabled><br/>
+            Font color:
+            <div id="divTxtColorMission" hidden>
+                <div style="background-color:#ffffff; width:30px; height:30px; border: 2px solid #000000;"></div>
+            </div>
+            <input type="text" id="txtColorMission" disabled><br/>
+
+            <!-- Donnes formation : libelle & id formation -->
+            <span class="require">*</span>Formation<br/>
+            <select id="lstFormation" disabled>
+                <option value="" selected="selected">---- NO INDIQUATE ----</option>
+                {% for f in formation %}
+                    <option value="{{ f.libelle }}" data-id="{{ f.id }}">{{ f.libelle}}</option>
+                {% endfor %}
+            </select>
+            <div class="noValid require"></div><br/>
+
+            <!-- Donnees semestre : libelle et id semestres -->
+            <span class="require">*</span>Semester<br/>
+            <select id="lstSemestre" disabled>
+                <option value="" selected="selected">---- NO INDIQUÉ ----</option>
+                {% for s in semestre %}
+                    <option value="{{ s.libelle }}" data-id="{{ s.id }}">{{ s.libelle }}</option>
+                {% endfor %}
+            </select>
+            <div class="noValid require"></div><br/>
+
+            <!-- Donnees modules du semestre 1 : libelle et id modules -->
+            <div id="divModSemestre1"> 
+                <span class="require">*</span>Modules (Semester 1)<br/>
+                <select id="lstModuleS1" disabled>
+                    <option value="" selected="selected">---- NO INDIQUATE ----</option>
+                    {% for ms1 in moduleS1 %}
+                        <option value='{{ ms1.libelle }}' data-id='{{ ms1.id }}'>{{ ms1.libelle }}</option>
+                    {% endfor %}
+                </select>
+                <div class="noValid require"></div><br/>
+            </div>
+
+            <!-- Donnees module du semestre 2 : libelle et id modules -->
+            <div id="divModSemestre2">
+                <span class="require">*</span>Modules (Semester 2)<br/>
+                <select id="lstModuleS2" disabled>
+                    <option value="" selected="selected">---- NO INDIQUATE -----</option>
+                    {% for ms2 in moduleS2 %}
+                        <option value='{{ ms2.libelle }}' data-id='{{ ms2.id }}'>{{ ms2.libelle }}</option>
+                    {% endfor %}
+                </select>
+                <div class="noValid require"></div><br/>
+            </div>
+
+            <!-- Données des intervenants : id ChargeTD = 2 / id Enseignant = 1 + nomIntervenant + mailIntervenant + idIntervenant -->
+            Teaching assistant<br/>
+            <select id="lstChargeTD" data-id="2" disabled> 
+                <option value="" selected="selected">---- NO INDIQUATE ----</option> 
+                {% for cTd in chargeTd %}
+                    <option value='{{ cTd.nom }}' data-mail='{{ cTd.mail }}' data-id='{{ cTd.id }}'>{{ cTd.nom }}</option> 
+                {% endfor %}
+            </select><br/><br/>
+
+            Teacher<br/>
+            <select id="lstEnseignant" data-id="1" disabled> 
+                <option value="" selected="selected">---- NO INDIQUATE ----</option> 
+                {% for e in enseignant %}
+                    <option value='{{ e.nom }}' data-mail='{{ e.mail }}' data-id='{{ e.id }}'>{{ e.nom }}</option> 
+                {% endfor %}
+            </select><br/><br/>
+
+            <!-- Donnees Evaluation -->
+            <div id="divIdEvaluation">
+                IdEvaluation <input type="text" id="idEvaluation" disabled><br/>
+            </div>
+            TypeOfEvaluation<br/>
+            <select id="lstTypeEvaluation" disabled> 
+                <option value="" selected="selected">---- NO INDIQUATE ----</option> 
+                <option value="ExamenTD" >Exam of TD</option> 
+                <option value="ExamenCours">Exam of Class</option>
+                <option value="NoteTD">Grade of TD</option>
+                <option value="NoteProjet">Grade of Project</option>
+            </select><br/><br/>
+            <div id="infoEvaluation">
+                Coef <input type="number" id="coefEvaluation" min="0" max="20" disabled><br/>
+                DateOfEvaluation <input type="text" id="dateEvaluation" disabled><br/>
+            </div>
+
+            <!-- Boutons -->
+            <div id="btns" style="border-top: 1px solid black; margin-top: 25px; text-align:right;">
+                <!-- Ajouter condition admin avec variable session -->
+                <button id="modifier" style="margin-top: 10px" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                    <span class='ui-button-text'>Modify</span>
+                </button>
+                <button id="deleteMission" style="margin-top: 10px" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                    <span class='ui-button-text'>Delete</span>
+                </button>
+                <button id="annuler" style="margin-top: 10px;" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                    <span class='ui-button-text'>Cancel</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Confirmation suppression -->
+        <div id="dialog-confirm" title="Etes vous sur ?">
+            <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+               You want to remove this mission. Are you sure ?</p>
+        </div>	
+    </div>
+{% endblock %}

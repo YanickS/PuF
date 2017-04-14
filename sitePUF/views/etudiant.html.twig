@@ -1,0 +1,67 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+    <title>Vous êtes etudiants</title>
+    <meta name="description" content="Vous êtes etudiants et cherchez des informations ? Le PUF reste à votre disposition pour toutes questions concernant les formations qu'il dispense" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm etudiant, puf université étudiant,
+          Pole universitaire francais ho chi minh"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+
+            $('#searchbar').autocomplete({
+                 serviceUrl: '{{ path('search') }}',
+                 dataType: 'json'
+             });
+
+           $('#btn-search').click(function(){
+                var temp = $('#searchbar').val();
+                if (temp != ''){
+                     var arr = temp.split('-');
+                    $.trim(arr[0]);
+                    var route = "{{ path('searchID', { 'lib': "PLACEHOLDER" }) }}";
+                    window.location = route.replace("PLACEHOLDER",arr[0]);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block etudiant %}
+    <div id="filAriane">
+        <h4><a href="{{ path('home') }}">Accueil</a> > Vous êtes etudiants</h4>
+    </div>
+    <div id="etudiantContainer">
+        <h1>VOUS ETES ETUDIANTS</h1>
+        <div id="etudiantInfos">
+            <div id="accroche">
+                <p id="accrocheQuestions">	Vous êtes étudiants ? Passionné d'informatique ? Basé au Vietnam ou d'ailleurs ? </p>
+                <p id="accrocheRep"> Ne cherchez plus et laissez vous guider !</p>
+            </div>
+            <div id="intro">
+                <h2>Qui sommes nous ?</h2>
+                <div class="ligne"></div>
+                <p> Le PUF (pôle universitaire francais) de Hô Chi Minh ville appartient aux établissements francais d'enseignement supèrieur présent au Vietnam qui fédère actuellement cinq formations divisées en deux filières : Economie et informatique. Pour en savoir plus sur nous n'hésitez pas à consulter notre page de <a href="{{ path('hier') }}">présentation</a>.</p>
+            </div>
+            <div id="formations">
+                <h2>Quelles formations proposons nous ?</h2>
+                <div class="ligne"></div>
+                <p>Comme indiqué précedemment le PUF de HCMV dispense des formations dans le domaine de l'économie et de l'informatique. </p>
+                <p>Si vous êtes interessé par notre Licence d'Economie Gestion ou par notre Master d'Economie des Affaires vous êtes malheureusement pas au bon endroit et devriez consulter <a href="">ce site</a>. Si vous souhaitez des renseignements sur notre <a href="{{ path('licence') }}">Licence d'informatique</a> et nos <a href="{{ path('master') }}">Masters d'informatique</a> vous êtes par contre au bon endroit !</p>
+            </div>
+            <div id="nousContacter">
+                <h2>Vous avez une question ?</h2>
+                <div class="ligne"></div>
+                <p>Si vous souhaitez entrer en relation avec nous pour avoir des compléments d'informations sur nos formations ou sur n'importe quel autre sujet n'hésitez pas à compléter notre <a href="{{ path('contact') }}">formulaire de contact</a>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

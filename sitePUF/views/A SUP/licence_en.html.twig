@@ -1,0 +1,100 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+        <title>I.T degree </title>
+        <meta name="description" content="Le PUF présente sa licence informatique délivrée par l'université de Bordeaux 1 et l'université de Paris 6" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Informatique Ho Chi Minh, Licence Informatique Ho Chi Minh,  Master IT Ho chi minh, Master in mobile and internet services,
+          Master in softwareengineering, stage informatique Ho hi minh, Formation Informatique Ho chi minh"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+{% block licence %}
+        <div id="filAriane">
+            <h4><a href="{{ path('home_en') }}">Home</a> > Formations > I.T degree</h4>
+        </div>
+        <div id="licenceContainer">
+            <h1>I.T degree</h1>
+            <p id="licenceDiplome"></p>
+            <div id="licenceInfos">
+                <div id="licenceDescription">
+                    <img alt="salle de cours" style="max-width: 500px" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgSalle.png" />
+                    <h2>Why choose an I.T degree (corresponding to a 3-year university course diploma)?</h2>
+                    <div class="ligne"></div>
+                    <p>- Information Technologies are more and more present in our daily lives: mails, social networks, video games, office equipment, Near Field Communication, embedded systems, etc… <br/>
+                    - That course gives the students the bases of a general computing training: designing, development, innovation…<br/></p>
+                    <h2>Why choose the PUF (Pôle Universitaire de France: French University Pole) ? </h2> 
+                    <p> - You will simultaneously obtain two diplomas in Information Technology: the degree of the Pierre and Marie Curie University (Paris VI Sorbonne) and the DUT (equivalent to a 2 year technical university course diploma) of Bordeaux University.<br/>
+                    - As they are internationally acknowledged, both theoretical and practical, those diplomas can offer you an immediate integration into the world of work.<br/>
+                    - If you prefer, you will be able to carry on your studies with a Master in France, in Europe, in the USA or in Vietnam.<br/>
+                    </p>
+                </div>
+                <div id="licenceOrganisation">
+                    <img alt="photo promo" style="max-width: 550px;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgPromo.png" />
+                    <h2>ORGANISATION OF THE TRAINING: </h2>
+                    <div class="ligne"></div>
+                    <p>- Accessibility conditions to the training: you must have obtained the BACCALAUREAT (equivalent to A-levels/High School Diploma)                         <br/>
+                        - Duration and rhythm of the training: 3 years shared in 6 semesters/terms <br/>
+                        - The subjects taught in the program are: algorithmic, programming and objects programming, object designing, databases, operation systems, networks, mathematics, management, expression and communication in French and English… <br/>
+                        - Projects and placements: the 6 terms of the training will permit you to carry out many projects and 2 work placements (semesters 4 and 6). <br/>
+
+
+                    </p>
+                </div>
+                
+                <div id="licenceAdmission">
+                   <img id="imgAdmission" alt="photos groupe" style="max-width: 550px;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgPromo2.png" />
+                    <h2>Admission requirements</h2>
+                    <div class="ligne"></div>
+                    <ul>
+                        <li>Step 1 : file selection </li>
+                        <li>Step 2 : interview selection</li>
+                    </ul>
+                    <h3>candidates</h3>
+                    <p> -> Having a French or International Baccalaureate, or a BA from the French-Vietnamese program may be admitted directly in 1st year (diploma should not be more than 3 years) <br/>
+                       -> Being enrolled in one of the french Universities should have a result with honors <br/>
+                        -> Having been a student of Vietnamese universities should have a result with mention<br/> 
+                        -> Having only a Vietnamese school graduate must pass the entrance exam to the University and Vietnam have the result exceeds the threshold set by the Ministry of Education Vietnamese  <br/>
+                        -> Having been spent 2 years in a University and obtained the number of sufficiently ventilated credit can apply directly for the 3rd year <br/>
+                        Candidates for English language training must demonstrate a sufficient level, equivalent to TOEFL (500 pts) or IELTS (5.5). In case of unjustified level, candidates will undergo a language test.<br/>
+                        The application forms can be printed from www.pufhcm.edu.vn website or picked up at the Office of the PUF - HCM at the address below.<br/>
+                    </p>
+                    <h3>Costs</h3>
+                    <p> 500.000 VND – the amount of the registration fee is non-refundable at any time is imperative paid when filing folders.  <br/>
+                        Excellence scholarship covering half or all of the tuition will be given to the best students selected on merit criterion at the end of each year.<br/>
+                        Dates<br/>
+                        Application fee: before June 30<br/>
+                        Selection on file and interviews: August <br/>
+                        Registration: September <br/>
+                        Language preparation: between September and October <br/>
+                        During the beginning: October <br/>
+                    </p>
+                </div>
+                <div id="licenceContact">
+                   <div id="batImg">
+                    <img alt="image batiment" style="width: 95%; height: 95%;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgBatiment.png" />
+                </div>
+                    <h2>Contact</h2>
+                    <div class="ligne"></div>
+                    <p> Pole Universitaire Francais de l'Université Nationale du Vietnam - HCM ville (PUF – HCM)<br/>
+                        Salle 706, 7eme étage, Bâtiment administratif de l’Université Nationale du Vietnam à HCMV<br/>
+                        Quartier 6, Linh Trung, Thu Duc arrondissement, Ho Chi Minh ville<br/>
+                        Tél : (08) 37 242 169 – Fax : (08) 37 242 166<br/>
+                    </p>
+                    <p> Mail : an.nguyenngoc@pufhcm.edu.vn<br/>
+                        info@pufhcm.edu.vn
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endblock %}

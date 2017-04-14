@@ -1,0 +1,125 @@
+{% extends "layout_en.html.twig" %}
+
+{% block head %}
+		<title>PUF HCM IT </title>
+		<meta name="description" content="Le PUF de Hô Chi Minh présente ses formations informatiques (Licence et Masters)." />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <META name="keywords" content="Informatique Ho Chi Minh, IT Ho Chi Minh, ITC Ho Chi Minh, Dut Informatique, Licence Informatique Ho Chi Minh,
+          Bachelor IT Ho Chi minh, Bachelor ICT Ho Chi Minh, Master IT Ho chi minh, Master in mobile and internet services,
+          Master in softwareengineering, stage informatique Ho hi minh, Formation Informatique Ho chi minh,
+          Formation TIC Ho chi minh "/> 
+    <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script src="{{ app.request.basePath }}/Js/owl.carousel.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+
+            /*$('#langages').autocomplete({
+             serviceUrl: 'fichier.php',
+             dataType: 'json'
+             });*/
+
+        });
+    </script>
+{% endblock %}
+{% block home %}
+		<div id="filAriane">
+			<h4>Home</h4>
+		</div>
+		<div id="homeContainer">
+			<h1>Welcome in PUF</h1>
+			<div id="homeCarousel" class="owl-carousel">
+            <div class="item"><img src="{{ app.request.basePath }}/Ressources/Img/Accueil/Carousel/tempCarousel.jpg" alt="Bienvenu au PUF"></div>
+            <div class="item"><img src="{{ app.request.basePath }}/Ressources/Img/Accueil/Carousel/imgBatiment.png" alt="Batiment"></div>
+        </div>
+        <div id="homeInfos">
+            <div class="text" id="why">
+					<h2>Why study at PUF ?</h2>
+					<div class="ligne"></div>
+					<h3>First-ranked European universities</h3>
+					<p>Our programmes are provided by leading international universities animated by world-class researchers and experienced professional trainers.</p>
+					<h3>International aknowledgement</h3>
+					<p>Our degrees are accredited according to the highest academic standards and offer global credibility and recognition.</p>
+					<h3>Top ICT industrial partners</h3>
+					<p>You will be able to benefit from our close links with top local and international companies for additional learning opportunities.</p>
+					<h3>Outstanding job prospects</h3>
+					<p>Our strong focus on technical, skills-based learning will give you the ability to pursue a career in research, academia, or industry. </p>
+				</div>
+				<div class="text">
+					<h2>What can you study ?</h2>
+					<div class="ligne"></div>
+					<p>  <a href="{{ path('licence_en') }}">Bachelor’s degree (Licence) in computer sciences</a> In 3 years, our degree will bring you the skills and knowledge necessary to take part to the designing, the development and the maintenance of information technology systems: 
+ <br />
+						- Designing, development, validation, softwares maintenance and monitoring, <br />
+						- Installation, administration and maintenance of information technology systems and networks.<br /></p>
+					<p> <a href="{{ path('master_en') }}">Master in mobile and internet services</a>, Our 24-month Master of Mobile and Internet Services focuses on the design and development of large scale distributed and mobile computer systems, the design of a network infrastructure to support them, and how scalable systems, which exploit distributed hardware architectures, can be designed.<br /></p>
+					<p> <a href="{{ path('master_en') }}">Master in software engineering</a> Our 24-month Master in Software Engineering focuses on formal methods and well-tried project management methodologies, as well as practical skills, to train experts in the design and development of secure, efficient software systems. </p>
+				</div>
+				<div class="text">
+					<h2>World-class education</h2>
+					<div class="ligne"></div>
+					<p>The PUF is an education institution established in 2006.ThPUF provides top-level academic education on ICT in partnership with first-ranked European universities. 
+						Our <a href="{{ path('licence_en') }}"> Bachelor </a> and <a href="{{ path('master_en') }}">Master</a>programs offer high quality technical training combined to practical experience
+						Our Bachelor and Master degrees integrate technology, management and industry experience to prepare our students to become decision-makers in the field of information technology. </p>
+				</div>
+				<div class="text">
+					<h2>Career opportunities</h2>
+					<div class="ligne"></div>
+					<p>With a global shortage of skilled people in ICT, our graduates get amongst the highest salaries of any other professions. 
+All students gain the strategic thinking skills and insight that are essential for technology leaders in today's competitive business environment.
+</p>
+				</div>
+				<div class="text">
+					<h2>The PUF's strengths: </h2>
+					<div class="ligne"></div>
+					<p>The PUF has active links with Europe through industrial <a href="{{ path('partenariat_en') }}">partnerships</a>, research collaborations as a framework for staff and student exchange arrangements.The PUF’s programmes are taught by a team of experienced professors and professional teaching fellows. 
+A range of different learning styles, from lectures to small-group projects, let you experience the different environments you’ll encounter in the professional working world.
+Lectures are supplemented by tutorials and labs sessions conducted in small groups to help you develop the practical experience and French or English technical language skills to succeed in the workplace and support your core learning content.
+You will benefit from our close links with local and international companies that provide additional and experiential learning opportunities.
+</p>
+				</div>
+			</div>
+		</div>
+		
+    <script>
+        $(document).ready(function () {
+            $("#homeCarousel").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+            });
+
+            var why = $("#why h2");
+            var text = $(".text h2");
+            text.addClass("close");
+            var par = text.next().nextAll();
+            par.css("display", "none");
+            why.next().nextAll().css("display", "block");
+            why.removeClass("close");
+            why.addClass("open");
+
+            $(".text h2").click(function () {
+                if ($(this).hasClass("close")) {
+                    $(this).next().nextAll().slideToggle();
+                    $(".text h2.open").next().nextAll().slideToggle();
+                    $(".text h2.open span").html("+");
+                    text.addClass("close");
+                    text.removeClass("open");
+                    $(this).addClass("open");
+                    $(this).removeClass("close");
+                    $(this).find("span").html("-");
+                }
+            });
+        });
+    </script>
+{% endblock %}

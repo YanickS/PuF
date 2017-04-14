@@ -1,0 +1,67 @@
+{% block header %}
+    <div id="header">
+        <div class="containerBlue">
+            <div class="contains">
+                <div id="language">
+                    <a href="#"><img src="{{ app.request.basePath }}/Ressources/Img/Header/FR.png" alt="FR"/></a>
+                    <a href="#"><img src="{{ app.request.basePath }}/Ressources/Img/Header/ENG.png" alt="ENG"/></a>
+                </div>
+                <div class="search">
+                    <input id="searchbar" placeholder="Recherche" type="text" value=""/>
+                    <input id="btn-search" type="button" value="OK" />
+                </div>
+                <input id="btn-connexion" type="button" value="Connexion" />
+            </div>
+        </div>
+        <!-- <div class="containerBlue connexion">-->
+        <div class="contains connexion">
+            <form action="{{ path('login') }}" method="post" id="connect">
+                <label>Identifiant : <input type="text" name="login"/></label><br />
+                <label>Mot de passe : <input type="password" name="pass" /></label>
+                <input type="submit" value="Ok"/>
+            </form>
+        </div>
+        <!--</div>-->
+        <div id="containerMiddle">
+            <div class="contains">
+                <a href="{{ path('home') }}"><img id="logo" src="{{ app.request.basePath }}/Ressources/Img/Header/logo.png" alt="logo"/></a>
+                <div id="title">
+                    <h1>Pôle Universitaire Français Hô Chi Minh</h1>
+                    <a href="{{ path('etudiant') }}">Vous êtes étudiants</a>
+                    <a href="{{ path('professionnel') }}">Vous êtes professionnel</a>
+                </div>
+                <div id="social-networks">
+                    <a href="https://www.facebook.com/pufhcmit"><img src="{{ app.request.basePath }}/Ressources/Img/Header/fb.png" alt="FB"/></a>
+                    <a href="https://twitter.com/PufHcm_It"><img src="{{ app.request.basePath }}/Ressources/Img/Header/twitter.png" alt="TWITTER"/></a>
+                </div>
+            </div>
+        </div>
+        <div class="containerBlue">
+            <div class="contains">
+                <div id="menu">
+                    <ul>
+                        <li><a href="{{ path('home') }}">Accueil</a></li>
+                        <li><a>PUF</a>
+                            <ul class="childMenu">
+                                <li><a href="{{ path('hier') }}">D'hier à aujourd'hui</a></li>
+                                <li><a href="{{ path('partenariat') }}">Partenariats</a></li>
+                                <li><a href="{{ path('chiffre') }}">Quelques chiffres</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Formations</a>
+                            <ul class="childMenu">
+                                <li><a href="{{ path('licence') }}">Licence</a></li>
+                                <li><a href="{{ path('master') }}">Master</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('contact') }}">Contacts</a></li>
+                        <li><a href="{{ path('medias') }}">Médias</a></li>
+                        <li><a href="{{ path('missions') }}">Missions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='erreurConnexion'><p>{{ erreur }}</p></div>
+    
+{% endblock %}

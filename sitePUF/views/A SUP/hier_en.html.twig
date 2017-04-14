@@ -1,0 +1,79 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+        <title>From Yesterday to Today</title>
+        <meta name="description" content="Le projet des Pôles Universitaires Français (PUF), a été établi par accord entre les deux gouvernements : français et vietnamien, en octobre 2004. " />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm histoire, puf formations,
+          Pole universitaire francais ho chi minh"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+{% block hier %}
+        <div id="filAriane">
+			<h4><a href="{{ path('home_en') }}">Home</a> > PUF > From Yesterday to Today</h4>
+        </div>
+        <div id="hierContainer">
+            <h1>THE PUF </h1> 
+            <div id="hierInfos">
+                <div id="p1">
+                    <h2>When and why ?</h2>
+                    <div class="ligne"></div>
+                    <p>
+                        The project of the French University Poles (PUF) was established by agreement -
+                         frame between the French and Vietnamese governments in October
+                         2004. In addition to training the elite of the country, it aims to meet the demand
+                         the Vietnamese government of a university model complies with
+                         international standards.
+                    </p>
+                </div>
+                <!--<div id="img1"><a><img src="Img/pufLogo.jpg" alt="puf" style="height: 200px;"/></a></div>-->
+                <div id="p2">
+                    <h2>For who and where ?</h2>
+                    <div class="ligne"></div>
+                    <p>
+                        PUF Hanoi and Ho Chi Minh are the programs organizers
+                         university displaced by renowned French universities, in
+                         European format LMD. Students of PUF in the region receive
+                         education and even get the same degree as if they were studying
+                         France, while remaining in Vietnam. The PUF, located in the two national universities in Hanoi
+                         and Ho Chi Minh City, also benefit from the reputation of the system
+                         Vietnamese university.
+                    </p>
+                </div>
+                <!--<div id="img2"><a><img src="Img/vietnam-drap.jpg" alt="vietnam" style="height: 200px;"/></a></div>-->
+                <div id="p3">
+                    <h2>the aim ?</h2>
+                    <div class="ligne"></div>
+                    <p>
+                        At their inception in 2004, the PUF aspired to unite the French training relocated to Vietnam (40% of training
+                         relocated at the time), in partnership with the Universities of Vietnam National (UNV) in Hanoi and Ho Chi Minh City.
+                         Initially supported under an FSP (Priority Solidarity Fund) now expired, the PUF passed in 2011
+                         Fully Vietnamese management.
+                    </p>
+                </div>
+                <div id="p4">
+                    <h2>what formations in Ho Chi Minh Ville ?</h2>
+                    <div class="ligne"></div>
+                    <p>The PUF Ho Chi Minh City (HCMC), which is a component of the UNV own HCMV (the equivalent of a faculty), now federates
+                         French relocated five formations, organized into two sectors:</p>
+                    <ul>
+                        <li>A Bachelor of Economics Management, with two courses (French and English). </li> 
+                        <li> A Master of Business Economics, taught in English. </li>
+                        <li> An I.T degree, taught in French. </li> 
+                        <li> Two I.T Masters </li>
+                    </ul><br/>
+                </div>
+            </div>
+        </div>
+        {% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+		<title>Terms</title>
+		<title>Conditions d'utilisations</title>
+    <meta name="description" content="Conditions d'utilisations - Règles d'usages - Accès au site - Responsabilité de l'éditeur - " />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm contact, puf conditions d'utilisation, Pole universitaire francais ho chi minh"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script> 
+        $(document).ready(function(){
+            $("#btn-connexion").click(function(){
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+		<div id="filAriane">
+			<h4><a href="{{ path('home_en') }}">Home</a> > Terms</h4>
+		</div>
+		<div id="conditionsContainer">
+			<h1>Terms</h1>
+			<div id="conditionsIntro">
+				<h2>Introduction</h2>
+				<p>
+					This document is to define the terms and conditions under which the one hand, the University of Bordeaux,
+hereinafter referred to as the publisher makes available to its users the website and the services available on the site and on the other,
+the way in which the user accesses the site and uses its services.Toute connection to the site is subject to compliance with these conditions.
+For the user, mere access to the publisher's website at the following URL <a href="http://pufhcm-it.com"> http://pufhcm-it.com </a>
+implies acceptance of all conditions described below.
+				</p>
+			</div>
+			<div id="conditionsPropIntel">
+				<h2>Property</h2>
+				<p>
+					The site's general structure <span class = "titreSite"> pufhcm-it </span>, as well as text,
+graphics, images, sounds and videos of the component, are the property of the publisher or its partners.
+Any representation and / or reproduction and / or partial or total use of content and services offered by the site <span class = "titreSite"> pufhcm-it </span>
+by any means whatsoever without the prior written permission of the publisher and / or its partners is strictly prohibited
+and would be likely to constitute an infringement under Articles L 335-2 of the Intellectual Property Code.
+The trademark "PUFHCM-IT" is a registered trademark of the University of Bordeaux.
+Any representation and / or reproduction and / or partial or total use of the mark, of any nature whatsoever, is totally prohibited.
+				</p>
+			</div>
+			<div id="conditionsLinks">
+				<h2>Hyperlinks</h2>
+				<p>
+					The <span class = "titreSite"> pufhcm-it </span> may contain hypertext links to other sites on the Internet.
+Links to these other resources that you leave the <span class = "titreSite"> pufhcm-it </span>.
+It is possible to create a link to the presentation page of this site without express permission of the publisher.
+No authorization or request for prior information may be required by the publisher in respect of a site that wants to establish a link to the publisher's website.
+It should display this website in a new browser window.
+However, the editor reserves the right to request removal of a link that believes not in accordance with the purpose of the <span class = "titreSite"> pufhcm-it </span>.
+				</p>
+			</div>
+			<div id="conditionsResponsabilite">
+				<h2>Responsibility of the publisher</h2>
+				<p>
+					The information and / or materials on this website and / or accessible through this Site from sources considered fiables.Toutefois, such information and / or documents may contain technical inaccuracies and typographical errors.
+The editor reserves the right to correct as soon as these errors are brought to its attention.
+It is strongly recommended to verify the accuracy and relevance of information and / or documents available on this site.
+The information and / or documents available on this site are subject to change at any time, and may have been updates.
+In particular, they may have been updated between the time they are downloaded and when the user's knowledge.
+The use of information and / or documents available on this site is under the full and sole responsibility of the user,
+which assumes all consequences thereof without the editor can be sought as such, and without recourse against the latter.
+The publisher shall in no event be liable for any damage of whatever nature
+arising from the interpretation or use of information and / or documents available on this site.
+				</p>
+			</div>
+			<div id="conditionsAcces">
+				<h2>Access</h2>
+				<p>
+					The publisher strives to provide access to the site round the clock, 7 days 7, except in cases of force majeure or an event beyond the control of the publisher,
+and subject to any breakdowns and maintenance necessary for the proper operation of the site and services.
+Therefore, the publisher can not guarantee availability of the site and / or services, transmission reliability and performance
+in terms of response time or quality. It is provided for any technical assistance with respect to the user
+whether by electronic or telephonic means.
+The liability of the publisher is not engaged in case of impossibility of access to this site and / or use of services.
+Furthermore, the publisher may have to discontinue the site or any of the Services at any time without notice, all without entitlement to compensation.
+The user acknowledges and agrees that the publisher is not liable for interruptions,
+and the consequences that may result for the user or any third party.
+				</p>
+			</div>
+			<div id="conditionsModif">
+				<h2>Modification of terms</h2>
+				<p>
+					The publisher reserves the right to modify at any time without notice, these terms of use in order to adapt them to the evolution of the site and / or its operation.
+				</p>
+			</div>
+			<div id="conditionsUsage">
+				<h2>Internet Rules of Usage</h2>
+				<p>
+					The user agrees to the characteristics and limitations of the Internet, especially recognizes that:
+The publisher assumes no responsibility for services accessed through the Internet and has no control of any form whatsoever
+the nature and characteristics of any data transferred via its server center.
+The user acknowledges that the data circulating on the Internet are not protected especially against possible diversions.
+The presence of PUFHCM-IT logo establishes a rebuttable presumption of validity.
+The disclosure of any information deemed by the sensitive or confidential user is done at their own risk.
+The user acknowledges that the data circulating on the Internet can be regulated in terms of use or be protected by a property right.
+The user is solely responsible for the use of the data he consults, questions and transfers on the Internet.
+The user acknowledges that the publisher has no control over the content accessible services on the Internet
+				</p>
+			</div>
+			<div id="conditionsDroitApp">
+				<h2>Applicable law</h2>
+				<p>
+					As this site and the terms and conditions of its use are governed by French law, whatever the place of use.
+In case of any dispute, and after the failure of all attempts at finding an amicable solution,
+French courts will have jurisdiction to hear the case.
+For questions regarding these terms of use, you can write to us at the following address: <a href="webmestre@u-bordeaux.fr">webmestre@u-bordeaux.fr</a>
+				</p>
+			</div>
+		</div>
+		{% endblock %}

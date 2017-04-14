@@ -1,0 +1,93 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+        <title>Some numbers</title>
+        <meta name="description" content="Après sept années de fonctionnement, le PUF-HCM a confirmé sa position dans l'éducation globale au Vietnam." />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm en chiffres, puf éducation,
+          Pole universitaire francais diplömés, Puf enseignement"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+    {% endblock %}
+{% block chiffre %}
+        <div id="filAriane">
+			<h4><a href="{{ path('home_en') }}">Home</a> > PUF > Some numbers</h4>
+        </div>
+        <div id="chiffresContainer"> 
+            <h1>THE PUF IN NUMBERS</h1>
+            <div id="chiffresInfos">
+                <div id="p1">
+                    <h2>How many students?</h2>
+                    <div class="ligne"></div>
+                    <p>
+                       After seven years of operation, the PUF-HCM has confirmed its position in global education in Vietnam.
+                       That's more than 500 students each year who participate in six training programs. <br/>
+                    </p>
+                </div>
+                <div id="p2">
+                    <h2>Generality</h2>
+                    <div class="ligne"></div>
+                    <p> The Vietnamese higher education between 2002 and 2013:</p><br/>
+                    <table id="chiffresTab">
+                        <tr> 
+                            <th></th>
+                            <th> 2002 - 2003 </th>
+                            <th> 2012 - 2013 </th>
+                            <th> de 2003 à 2013 </th>
+                        </tr>
+                        <tr> 
+                            <td> Students </td>
+                            <td> 1 020 677 </td>
+                            <td> 2 177 299 </td>
+                            <td> + 113% </td>
+                        </tr>
+                        <tr> 
+                            <td> Diploma</td>
+                            <td> 163 960 </td>
+                            <td> 425 208 </td>
+                            <td> + 159% </td>
+                        </tr>
+                        <tr> 
+                            <td>Universities </td>
+                            <td> 81 </td>
+                            <td> 207 </td>
+                            <td> + 156% </td>
+                        </tr>
+                    </table><br/>
+                    <p>In 2013, 176,917 degrees Cao dang (bac + 3, that validates a professional higher education curriculum) were issued.</p>
+                </div>
+                <div id="p3">
+                    <h2>Existing cooperation with higher education institutions </h2>
+                    <div class="ligne"></div>
+                    <p>
+                        In September 2012, the Vietnamese Ministry confirmed its approval for 179 training programs in partnership with
+                        foreign institutions. France is the first partner with 25 programs.
+                    </p>
+                </div>
+                <!--<div id="img2"><a><img src="Img/vietnam-drap.jpg" alt="vietnam" style="height: 200px;"/></a></div>-->
+                <div id="p4">
+                    <h2>The role of France</h2>
+                    <div class="ligne"></div>
+                    <p>
+                        France has made higher education a priority in its cooperation activities with Vietnam.
+                        This takes the form of graduate scholarships programs in France and support projects to French higher education relocated to                             Vietnam. Among these are the Poles niversitaires French (PUF) in Hanoi and Ho Chi Minh City which deliver 18 degrees French and                           the French-Vietnamese Training Centre Management (CFVG), the first business school in Vietnam. <br/>
+                        A major medical education program has also trained more than 2,000 medical specialists in 20 years. <br/>
+                         Finally, in November 2009, the project of a new Vietnamese public university, the University of Science and
+                         Technology of Hanoi (USTH), was launched. This project developed as part of a strategic partnership with a consortium
+                         French universities aims to enroll 8,000 students eventually closely associating training and research
+                         and innovation and to rank among the top 200 universities in the world.
+                    </p>
+                </div>                    
+            </div>
+        </div>
+        {% endblock %}

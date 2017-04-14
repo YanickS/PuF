@@ -1,0 +1,129 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+    <title>Licence Informatique</title>
+    <meta name="description" content="Le PUF présente sa licence informatique délivrée par l'université de Bordeaux 1 et l'université de Paris 6" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Informatique Ho Chi Minh, Licence Informatique Ho Chi Minh,  Master IT Ho chi minh, Master in mobile and internet services,
+          Master in softwareengineering, stage informatique Ho hi minh, Formation Informatique Ho chi minh"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+
+            $('#searchbar').autocomplete({
+                 serviceUrl: '{{ path('search') }}',
+                 dataType: 'json'
+             });
+
+            $('#btn-search').click(function(){
+                var temp = $('#searchbar').val();
+                if (temp != ''){
+                     var arr = temp.split('-');
+                    $.trim(arr[0]);
+                    var route = "{{ path('searchID', { 'lib': "PLACEHOLDER" }) }}";
+                    window.location = route.replace("PLACEHOLDER",arr[0]);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block licence %}
+    <div id="filAriane">
+        <h4><a href="{{ path('home') }}">Accueil</a> > Formations > Licence Informatique</h4>
+    </div>
+    <div id="licenceContainer">
+        <h1>LICENCE INFORMATIQUE</h1>
+        <p id="licenceDiplome">Diplôme LMD délivré par l’Université Bordeaux1 et l’Université Paris6</p>
+        <div id="licenceInfos">
+            <div id="licenceDescription">
+                <img alt="salle de cours" style="max-width: 500px" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgSalle.png" />
+                <h2>Description</h2>
+                <div class="ligne"></div>
+                <p>Le Vietnam connaît actuellement un développement économique considérable dans tous les domaines professionnels.
+                    Dans ce contexte, les technologies de l’information constituent un levier essentiel dans la modernisation de l’économie vietnamienne. Les entreprises installées au Vietnam, qu’elles soient publiques ou privées, vietnamiennes ou internationales, ressentent aujourd’hui un besoin crucial d’informaticiens de haut niveau.
+                    La licence d'informatique s'adresse aux étudiants intéressés par l'informatique sous tous ses aspects. Elle vise à en donner les bases tant théoriques que pratiques. Les diplômés de cette licence seront immédiatement opérationnels dans des métiers nombreux et variés ou bien pourront continuer des études en master d'informatique.
+                    <span style="font-weight:bold;">Trois diplômes</span> peuvent être obtenus au sein du cycle Licence d'informatique :
+                    un DUT Informatique, une Licence Professionnelle Systèmes Informatiques et Logiciels, une Licence de Sciences et Technologies mention Informatique.
+                </p>
+            </div>
+            <div id="licenceOrganisation">
+                <img alt="photo promo" style="max-width: 550px;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgPromo.png" />
+                <h2>Organisation</h2>
+                <div class="ligne"></div>
+                <p>La licence d'informatique est organisée sur 3 années universitaires<br/>
+                    <span style="font-weight:bold;">Les deux premières années de cours </span>indifférenciées permettent aux étudiants d’obtenir un premier diplôme universitaire professionnel : le DUT (Diplôme Universitaire de Technologie) d’informatique.<br/>
+                    <span style="font-weight:bold;">La troisième année </span>présente deux parcours de référence :<br/>
+                    -> La licence professionnelle apporte un solide capital de connaissances approprié à tout métier de l'informatique et permettant aux étudiants de prendre immédiatement des responsabilités informatiques dans les entreprises.<br/>
+                    -> La licence de sciences et technologies mention informatique vise à faire acquérir des bases théoriques et pratiques permettant de poursuivre des études dans une spécialité de master d'informatique de Ho Chi Minh Ville (Spécialité Réseaux ou Spécialité Génie Logiciel) ou de n’importe quelle université française ou européenne.<br/>
+                    <br/><span style="font-weight:bold;">Année 1 / Année 2</span><br/>
+                    DUT Informatique + Compléments Théoriques<br/>
+                    Bordeaux 1 / Paris 6<br/>
+                </p>
+                <p><span style="font-weight:bold;">Année 3</span><br/>
+                    Licence Professionnelle - Systèmes Informatiques et Logiciels - Bordeaux 1<br/>
+                    Licence Sciences et Technologies - Mention Informatique - Paris 6<br/>
+                </p>
+            </div>
+            <div id="licenceProg">
+                <h2>Programme de la formation</h2>
+                <div class="ligne"></div>
+                <h3>Licence 1 et Licence 2</h3>
+                <div id="licenceProgLicence1"><img id="imgTableau1" alt="image licence 1" src="{{ app.request.basePath }}/Ressources/Img/Formations/licence1et2.png"/></div>
+                <h3>Licence 3</h3>
+                <div id="licenceProgLicence2"><img id="imgTableau2" alt="image licence 2" src="{{ app.request.basePath }}/Ressources/Img/Formations/licence3-1.png"/>
+                    <img id="imgTableau3" alt="image licence 3" src="{{ app.request.basePath }}/Ressources/Img/Formations/licence3-2.png"/></div>
+            </div>
+            <div id="licenceAdmission">
+                <img id="imgAdmission" alt="photos groupe" style="max-width: 550px;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgPromo2.png" />
+                <h2>Conditions d’admission</h2>
+                <div class="ligne"></div>
+                <ul>
+                    <li>Étape 1 : Sélection sur dossier </li>
+                    <li>Étape 2 : Sélection sur l’entretien des candidats n’ayant pas admis directement sur dossier</li>
+                </ul>
+                <h3>Les candidats</h3>
+                <p> -> Ayant un Baccalauréat francais ou international, ou un Baccalauréat issu du programme franco-vietnamien peuvent être admis directement en 1ère année (diplôme ne doit pas être plus de 3 ans)<br/>
+                    -> Étant inscrits à une des Universités francaises doivent avoir un résultat avec mention<br/>
+                    -> Ayant éte étudiants dans une des Universités vietnamiennes doivent avoir un résultat avec mention<br/>
+                    -> Ayant seulement un Baccalauréat vietnamien doivent passer le concours d’entrée à l’Université vietnamienne et avoir le résultat supérieur au seuil fixé par le Ministère de l’Éducation vietnamien<br/>
+                    -> Ayant été passé 2 ans dans une Université et obtenu le nombre de crédit suffissant peuvent candidater directement pour la 3ème année<br/>
+                    Les candidats à la formation en Anglais doivent justifier d’un niveau suffisant, équivalent aux TOEFL (500 pts) ou IELTS (5.5). En cas de non justifié du niveau, les candidats seront soumis à un test linguistique.<br/>
+                    Les dossiers de candidatures peuvent être imprimés du site web www.pufhcm.edu.vn ou retirés au Bureau du PUF – HCM à l’adresse ci-dessous.<br/>
+                </p>
+                <h3>Frais d’enregistrement</h3>
+                <p> 500.000 VND – le montant d’un frais d'enregistrement qui est en tout temps non-remboursable est impérativement payé lors du dépôt des dossiers.  <br/>
+                    Des bourses d’excellent couvrant la moitié ou la totalité des frais de scolarité seront données aux meilleurs étudiants sélectionnés sur critère de mérite à la fin de chaque année.<br/>
+                    Dates à retenir<br/>
+                    Dépôt de dossier : avant le 30 Juin <br/>
+                    Sélection sur dossier et entretiens : Aout <br/>
+                    Inscription : Septembre <br/>
+                    Préparation de langue : entre Septembre et Octobre<br/> 
+                    Début de cours : Octobre<br/>
+                </p>
+            </div>
+            <div id="licenceContact">
+                <div id="batImg">
+                    <img alt="image batiment" style="width: 95%; height: 95%;" src="{{ app.request.basePath }}/Ressources/Img/Formations/imgBatiment.png" />
+                </div>
+                <h2>Contact</h2>
+                <div class="ligne"></div>
+                <p> Pole Universitaire Francais de l'Université Nationale du Vietnam - HCM ville (PUF – HCM)<br/>
+                    Salle 706, 7eme étage, Bâtiment administratif de l’Université Nationale du Vietnam à HCMV<br/>
+                    Quartier 6, Linh Trung, Thu Duc arrondissement, Ho Chi Minh ville<br/>
+                    Tél : (08) 37 242 169 – Fax : (08) 37 242 166<br/>
+                </p>
+                <p> Mail : an.nguyenngoc@pufhcm.edu.vn<br/>
+                    info@pufhcm.edu.vn
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

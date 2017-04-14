@@ -1,0 +1,41 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+		<title>Legal mention</title>
+		 <meta name="description" content="Page des mentions légales du site du Pôle universitaire Francais de Hö Chi Minh" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, puf conditions d'utilisations, Pole universitaire francais ho chi minh"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script> 
+        $(document).ready(function(){
+            $("#btn-connexion").click(function(){
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block mentions %}
+		<div id="filAriane">
+			<h4><a href="{{ path('home') }}">Home</a> > Legal mention</h4>
+		</div>
+		<div id="mentionsContainer">
+			<h1>LEGAL MENTION</h1>		
+			<div id="mentionsInfos">
+				<p>
+					Pursuant to the provisions of Article 6 III-1 of Act No. 2004-575 of 21 June 2004 on confidence in the digital economy, this site is the property of the University of Bordeaux.
+				</p>
+				<div id="mentionsCoord">
+					<p><span>Director : </span>Manuel Tunon de Lara</p>
+					<p><span>Address : </span>351 cours de la Libération, 33405 Talence Cedex</p>
+					<p><span>Phone: </span>+33 (0)5 40 00 60 00</p>
+					<p><span>Mail: </span><a href="webmestre@u-bordeaux.fr">webmestre@u-bordeaux.fr</a></p>
+				</div>
+				<p>This site is hosted by the IT Department of the University of Bordeaux.</p>
+			</div>		
+		</div>
+		{% endblock %}

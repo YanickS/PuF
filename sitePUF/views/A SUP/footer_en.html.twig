@@ -1,0 +1,35 @@
+{% block footer %}
+    <div id="footer">
+        <div id="footerContainer">
+            <div id="footerLogoLeft">
+                <div id="footerUnivLogo">
+                    <img src="{{ app.request.basePath }}/Ressources/Img/Footer/univLogo.jpg" alt="Logo université Bordeaux"/>
+                </div>
+                <div id="footerUnvLogo">
+                    <img src="{{ app.request.basePath }}/Ressources/Img/Footer/unvLogo.jpg" alt="Logo UNV"/>
+                </div>
+            </div>
+            <div id="footerLogoRight">
+                <div id="footerUpmcLogo">
+                    <img src="{{ app.request.basePath }}/Ressources/Img/Footer/upmcLogo.png" alt="logo UPMC"/>
+                </div>
+                <div id="footerPufLogo">
+                    <img src="{{ app.request.basePath }}/Ressources/Img/Footer/pufHanoiLogo.jpg" alt="logo PUF"/>
+                </div>
+            </div>
+            <div id="contactFooter">
+                <p>	Pôle Universitaire Français de Hô Chi Minh Ville</p>
+                <p>	Office 706, 7th Floor, Nationnal University <br/>
+                    Area 6, Linh Trung Ward, District 8, <br/>
+                    Hô Chi Minh Vietnam</p>
+                <p>	Tel : (08) 37 242 169 <br/>
+                    Fax : (08) 37 242 166 <br/>
+                    Email : pufhcm@vnuhcm.edu.vn</p>
+                <div id="contactLinks">
+                    <a href="{{ path('mentions_en') }}">Legal mention</a>
+                    <a href="{{ path('conditions_en') }}">Terms</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+    <title>Vous êtes professionnel</title>
+    <meta name="description" content="Vous êtes professionnel et vous cherchez des informations ? Le PUF vous guide et répond à vos questions." />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm entreprises, puf université entreprises,
+          Pole universitaire francais ho chi minh"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+
+            $('#searchbar').autocomplete({
+                 serviceUrl: '{{ path('search') }}',
+                 dataType: 'json'
+             });
+
+            $('#btn-search').click(function(){
+                var temp = $('#searchbar').val();
+                if (temp != ''){
+                     var arr = temp.split('-');
+                    $.trim(arr[0]);
+                    var route = "{{ path('searchID', { 'lib': "PLACEHOLDER" }) }}";
+                    window.location = route.replace("PLACEHOLDER",arr[0]);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block professionnel %}
+    <div id="filAriane">
+        <h4><a href="{{ path('home') }}">Accueil</a> > Vous êtes professionnel</h4>
+    </div>
+    <div id="proContainer">
+        <h1>VOUS ETES PROFESSIONNEL</h1>
+        <div id="proInfos">
+            <div id="accroche">
+                <p id="accrocheQuestions">	Vous êtes une entreprise ? A la recherche d'un stagiaire ? Vous voulez en savoir plus sur nos formations ?</p>
+                <p id="accrocheRep"> Ne cherchez plus et laissez vous guider !</p>
+            </div>
+            <div id="intro">
+                <h2>Qui sommes nous ?</h2>
+                <div class="ligne"></div>
+                <p> Le PUF (pôle universitaire francais) de Hô Chi Minh ville appartient aux établissements francais d'enseignement supèrieur présent au Vietnam qui fédère actuellement cinq formations divisées en deux filières : Economie et informatique. Pour en savoir plus sur nous n'hésitez pas à consulter notre page de <a href="{{ path('hier') }}">présentation</a>.</p>
+            </div>
+            <div id="formations">
+                <h2>Comment se déroulent les stages et formations ?</h2>
+                <div class="ligne"></div>
+                <p>Le departement informatique dispense deux types de formations <a href="{{ path('licence') }}">une Licence d'informatique</a> et <a href="{{ path('master') }}">deux Master d'informatique</a>.  Nos formations prévoient des périodes de stage allant de trois à six mois. Pour les étudiants, c’est l'occasion de mettre en pratique les connaissances acquises au cours de leurs formations et de se préparer à leurs futurs emplois. Pour vous, c’est l’occasion de rencontrer de futurs diplômés afin de les intégrer à votre équipe.</p>
+            </div>
+            <div id="nousContacter">
+                <h2>Vous souhaitez nous contacter ?</h2>
+                <div class="ligne"></div>
+                <p>Si vous souhaitez entrer en relation avec nous pour nous transmettre vos offres de stage ou simplement pour avoir des compléments d'informations sur un sujet en particulier n'hésitez pas à compléter notre <a href="{{ path('contact') }}">formulaire de contact</a>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

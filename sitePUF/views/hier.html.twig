@@ -1,0 +1,96 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+    <title>D'Hier à Aujourd'hui</title>
+    <meta name="description" content="Le projet des Pôles Universitaires Français (PUF), a été établi par accord entre les deux gouvernements : français et vietnamien, en octobre 2004. " />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm histoire, puf formations,
+          Pole universitaire francais ho chi minh"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+
+            $('#searchbar').autocomplete({
+                 serviceUrl: '{{ path('search') }}',
+                 dataType: 'json'
+             });
+
+            $('#btn-search').click(function(){
+                var temp = $('#searchbar').val();
+                if (temp != ''){
+                     var arr = temp.split('-');
+                    $.trim(arr[0]);
+                    var route = "{{ path('searchID', { 'lib': "PLACEHOLDER" }) }}";
+                    window.location = route.replace("PLACEHOLDER",arr[0]);
+                }
+            });
+        });
+    </script>
+{% endblock %}
+{% block hier %}
+
+    <div id="filAriane">
+        <h4><a href="{{ path('home') }}">Accueil</a> > PUF > D'hier à Aujourd'hui</h4>
+    </div>
+    <div id="hierContainer">
+        <h1>LE PUF EN BREF</h1> 
+        <div id="hierInfos">
+            <div id="p1">
+                <h2>Quand et Pourquoi ?</h2>
+                <div class="ligne"></div>
+                <p>
+                    Le projet des Pôles Universitaires Français (PUF), a été établi par accord -
+                    cadre entre les deux gouvernements français et vietnamien en octobre
+                    2004. Outre la formation des élites du pays, il vise à répondre à la demande
+                    du gouvernement vietnamien d’un modèle universitaire conforme aux
+                    standards internationaux.
+                </p>
+            </div>
+            <!--<div id="img1"><a><img src="Img/pufLogo.jpg" alt="puf" style="height: 200px;"/></a></div>-->
+            <div id="p2">
+                <h2>Pour qui et où ?</h2>
+                <div class="ligne"></div>
+                <p>
+                    Les PUF Hanoi et Ho Chi Minh sont les organisateurs de programmes
+                    universitaires délocalisées par des universités françaises de renom, au
+                    format européen LMD. Les étudiants des PUF de la région reçoivent le
+                    même enseignement et obtiennent le même diplôme que s’ils étudiaient
+                    en France, tout en demeurant au Vietnam. Les PUF, implantés dans les deux universités nationales du Vietnam Hanoi
+                    et Ho Chi Minh Ville, bénéficient également de la notoriété du système
+                    universitaire vietnamien.
+                </p>
+            </div>
+            <!--<div id="img2"><a><img src="Img/vietnam-drap.jpg" alt="vietnam" style="height: 200px;"/></a></div>-->
+            <div id="p3">
+                <h2>Quel but ?</h2>
+                <div class="ligne"></div>
+                <p>
+                    A leur création en 2004, les PUF ambitionnaient de fédérer les formations françaises délocalisées au Vietnam (40 % des formations
+                    délocalisées à l’époque), en partenariat avec les Universités Nationales du Vietnam (UNV) à Hanoi et Hô Chi Minh-Ville. 
+                    Initialement soutenus dans le cadre d’un FSP (Fonds de solidarité prioritaire) désormais échu, les PUF sont passés en 2011 en
+                    gestion entièrement vietnamienne.
+                </p>
+            </div>
+            <div id="p4">
+                <h2>Quelles formations à Ho Chi Minh Ville ?</h2>
+                <div class="ligne"></div>
+                <p>Le PUF de Ho Chi Minh-Ville (HCMV), qui est une composante propre de l’UNV d’HCMV (l’équivalent d’une faculté), fédère désormais
+                    cinq formations françaises délocalisées, organisées en deux filières :</p>
+                <ul>
+                    <li>Une Licence d’Economie Gestion, avec deux cursus (en français et en anglais).</li>
+                    <li> Un Master d’Economie des Affaires, enseigné en anglais.</li>
+                    <li>Une Licence d’Informatique, enseignée en français.</li>
+                    <li>Deux Masters d’informatique avec un tronc commun en 1ère année.</li>
+                </ul><br/>
+            </div>
+        </div>
+    </div>
+{% endblock %}

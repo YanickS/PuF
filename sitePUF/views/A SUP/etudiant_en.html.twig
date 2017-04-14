@@ -1,0 +1,51 @@
+{% extends 'layout_en.html.twig' %}
+
+{% block head %}
+		<title>You are student</title>
+		<meta name="description" content="Vous êtes etudiants et cherchez des informations ? Le PUF reste à votre disposition pour toutes questions concernant les formations qu'il dispense" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="keywords" content="IT Ho Chi Minh, Pole universitaire francais, puf, puf hcmv, pufhcm etudiant, puf université étudiant,
+          Pole universitaire francais ho chi minh"/>
+    <link rel="icon" type="image/png" href="{{ app.request.basePath }}/Ressources/Img/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basePath }}/Ressources/Img/favicon.ico" />
+    <link href="{{ app.request.basePath }}/Styles/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="{{ app.request.basePath }}/Js/jquery.autocomplete.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn-connexion").click(function () {
+                $(".contains.connexion").slideToggle(0);
+            });
+        });
+    </script>
+{% endblock %}
+{% block etudiant %}
+		<div id="filAriane">
+			<h4><a href="{{ path('home_en') }}">Home</a> > You are student</h4>
+		</div>
+		<div id="etudiantContainer">
+			<h1>YOU ARE STUDENT</h1>
+			<div id="etudiantInfos">
+				<div id="accroche">
+					<p id="accrocheQuestions">You are student? Computer enthusiast? Based in Vietnam or elsewhere? </p>
+					<p id="accrocheRep"> Look no further and follow the instructions!</p>
+				</div>
+				<div id="intro">
+					<h2>Who are we ?</h2>
+					<div class="ligne"></div>
+					<p> The PUF (french university pole) Ho Chi Minh City is up to French higher education present in Vietnam which currently brings together five teams divided into two sectors: Economics and Computer Science. To learn more about us please visit our page <a href="{{ path('hier') }}">presentation</a>.</p>
+				</div>
+				<div id="formations">
+					<h2>What training do we offer?</h2>
+					<div class="ligne"></div>
+					<p>As said before the PUF HCMC provides training in the field of economics and computer science.</p>
+					<p>If you are interested in our Degree in Economics or Management Our Master of Business Economics you are unfortunately in the wrong place and should consult <a href="">this site</a>. If you want information about our <a href="{{ path('licence_en') }}">I.T degree</a> and our <a href="{{ path('master_en') }}">Masters</a> you are in the right place!</p>
+				</div>
+				<div id="nousContacter">
+					<h2>Any question ?</h2>
+					<div class="ligne"></div>
+					<p>If you want to get in touch with us to have additional information about our training or any other topic feel free to complete our <a href="{{ path('contact_en') }}">contact form</a>.</p>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
